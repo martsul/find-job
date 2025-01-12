@@ -1,0 +1,29 @@
+.block {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.title {
+  color: #242D3C;
+  font: 700 20px/30px var(--font);
+  letter-spacing: -.8px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  color: #242D3C;
+  opacity: .5;
+  font: 400 20px/30px var(--font);
+  transition: opacity .1s ease;
+}
+
+.link:hover {
+  opacity: 1;
+}
