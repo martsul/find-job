@@ -11,7 +11,7 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <a href="#">{<Logo />}</a>
+        <a href="#" className={styles.logo}>{<Logo />}</a>
         <HeaderNav />
         {sign && <HeaderAuthorization />}
         <HeaderButtons />

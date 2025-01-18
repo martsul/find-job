@@ -4,17 +4,17 @@ import classNames from "classnames";
 import styles from "./button.module.css";
 
 export const Button: FC<ButtonsData> = ({ children, info }) => {
-  const { size, style, type, click } = info;
+  const { size, style, kind, click, type } = info;
 
   return (
     <button
-      type="button"
+      type={type}
       onClick={click}
       className={classNames(
         styles.button,
         styles[size],
         styles[style],
-        styles[type]
+        styles[kind]
       )}
     >
       {children}

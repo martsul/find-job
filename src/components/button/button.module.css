@@ -59,16 +59,45 @@
   gap: 4px;
 }
 
+.secondary {
+  background: var(--green-2);
+  color: #fff;
+}
+
+.secondary:hover {
+  background: var(--green-1);
+}
+
+.secondary:active {
+  background: var(--green-1);
+}
+
+.secondary:focus {
+  border: 3px solid #269D62;
+}
+
+.secondary:disabled {
+  background: var(--green-2);
+  cursor: default;
+  border-color: transparent;
+  opacity: .5;
+}
+
 .primary {
   background: #3D425A;
   color: #fff
+}
+
+.primary svg {
+  stroke: #fff;
+  fill: transparent;
 }
 
 .primary:hover {
   background: #252A3F;
 }
 
-.primary:active {
+.primary:focus {
   background: #252A3F;
   border-color: #AAAFBE
 }
@@ -84,12 +113,17 @@
   border: 1px solid #AAAFBE;
 }
 
+.bordered svg {
+  stroke: #7F879E;
+  fill: transparent;
+}
+
 .big.base.bordered {
   padding: 14px 34px;
 }
 
 .medium.base.bordered {
-  padding: 10px 26px;
+  padding: 11px 28px;
 }
 
 .small.base.bordered {
@@ -105,28 +139,36 @@
   color: #3D425A;
 }
 
-.big.base.bordered:active {
-  border: 3px solid #D4D7DF;
-  padding: 12px 32px;
+.bordered:hover svg {
+  stroke: #3D425A;
 }
 
-.medium.base.bordered:active {
+.big.base.bordered:focus {
   border: 3px solid #D4D7DF;
-  padding: 8px 24px;
+  padding: 15px 35px;
 }
 
-.small.base.bordered:active {
+.medium.base.bordered:focus {
+  border: 3px solid #D4D7DF;
+  padding: 10px 26px;
+}
+
+.small.base.bordered:focus {
   border: 2px solid #D4D7DF;
   padding: 9px 15px;
 }
 
-.xsmall.base.bordered:active {
+.xsmall.base.bordered:focus {
   border: 2px solid #D4D7DF;
   padding: 3px 9px;
 }
 
-.bordered:active {
+.bordered:focus {
   color: #3D425A;
+}
+
+.bordered:focus svg {
+  stroke: #3D425A;
 }
 
 .bordered:disabled {

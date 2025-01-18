@@ -7,7 +7,9 @@ export const HeaderAuthorization = () => {
 
   return (
     <div className={styles.container}>
-      <User />
+      <div className={styles.svgContainer}>
+        <User />
+      </div>
       <span className={styles.name}>{name}</span>
     </div>
   );

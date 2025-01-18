@@ -1,0 +1,59 @@
+.container {
+  height: 36px;
+  border-left: 1.5px solid var(--lGrey-1);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding-left: 16px;
+  position: relative;
+  max-width: 322px;
+}
+
+.svgContainer {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.input {
+  color: #7F879E;
+  font: 400 16px/1.3 var(--font);
+}
+
+.svgMax {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.modal {
+  position: absolute;
+  top: 100%;
+  background: #FFF;
+  border-radius: 12px;
+  padding: 10px 0;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  opacity: 0;
+  z-index: -5000;
+}
+
+.modal.active {
+  opacity: 1;
+  z-index: 1;
+  transition: opacity .1s ease;
+}
+
+.option {
+  padding: 8px 20px 15px;
+  font: 400 16px/1.3 var(--font);
+  color: #7F879E;
+  cursor: pointer;
+  transition: color .1s ease;
+}
+
+.option:hover {
+  color: var(--green-2);
+}

@@ -11,7 +11,8 @@ export const HeaderButtons = () => {
         info={{
           size: "small",
           style: "bordered",
-          type: "base",
+          type: "button",
+          kind: "base",
           click: signCallback,
         }}
       >
@@ -21,7 +22,8 @@ export const HeaderButtons = () => {
         info={{
           size: "small",
           style: "primary",
-          type: "base",
+          type: "button",
+          kind: "base",
           click: signCallback,
         }}
       >

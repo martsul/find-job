@@ -19,14 +19,6 @@
   transition: color .1s ease;
 }
 
-.link:hover {
-  color: var(--green-2);
-}
-
-.group:hover .link {
-  color: var(--green-2);
-}
-
 .modal {
   position: absolute;
   padding: 10px 15px;
@@ -53,6 +45,14 @@
   transition: color .1s ease;
 }
 
-.sublink:hover {
+.link:hover, .sublink:hover {
+  color: var(--green-2);
+}
+
+.link:active, .sublink:active {
+  color: var(--green-1);
+}
+
+.group:hover .link {
   color: var(--green-2);
 }

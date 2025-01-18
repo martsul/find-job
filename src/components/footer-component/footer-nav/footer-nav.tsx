@@ -32,9 +32,9 @@ const DATA_OF_NAV = [
 export const FooterNav = () => {
   return (
     <nav className={styles.nav}>
-      {DATA_OF_NAV.map((item) => {
+      {DATA_OF_NAV.map((item, index) => {
         const { title, links } = item;
-        return <FooterNavBlock title={title} links={links} />;
+        return <FooterNavBlock key={index} title={title} links={links} />;
       })}
     </nav>
   );

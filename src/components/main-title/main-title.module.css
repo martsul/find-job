@@ -1,0 +1,28 @@
+.title {
+  color: var(--sBlack-1);
+  text-transform: capitalize;
+}
+
+.title.left {
+  text-align: left;
+}
+
+.title.center {
+  text-align: center;
+}
+
+.title.right {
+  text-align: right;
+}
+
+h1.title {
+  font: var(--h1);
+}
+
+h2.title {
+  font: var(--h2);
+}
+
+.strong {
+  color: var(--green-2);
+}
