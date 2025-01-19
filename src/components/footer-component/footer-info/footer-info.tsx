@@ -20,13 +20,13 @@ export const FooterInfo = () => {
           </a>
         </div>
         <div className={styles.networks}>
-          <a href="#">
+          <a className={styles.network} href="#">
             <Inst />
           </a>
-          <a href="#">
+          <a className={styles.network} href="#">
             <Twitter />
           </a>
-          <a href="#">
+          <a className={styles.network} href="#">
             <Facebook />
           </a>
         </div>

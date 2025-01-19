@@ -3,13 +3,17 @@
   --h1: 600 62px/1.3 "Readex Pro", sans-serif;
   --h2: 600 44px/1.3 "Readex Pro", sans-serif;
   --p1: 400 18px/1.6 "Readex Pro", sans-serif;
+  --black-1: #1B2124;
   --sBlack-1: #252A3F;
   --sBlack-3: #3D425A;
   --lGrey-1: #F3F3F3;
+  --lGrey-2: #F6F8F9;
+  --lGrey-3: #F9F9F9;
   --grey-1: #7F879E;
   --grey-3: #D4D7DF;
   --green-1: #2EB873;
   --green-2: #47D18C;
+  --blue-1: #1F8FFF;
   --container: 1280px;
   --secondaryYellow: #EAEDB6;
 }

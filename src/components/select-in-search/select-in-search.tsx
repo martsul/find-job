@@ -8,14 +8,16 @@ export const SelectInSearch = () => {
   const { city, changeCity } = useChangeCity();
   const { isVisible, changeVisible } = useChangeVisible();
 
-
   return (
-    <div className={styles.container} onClick={changeVisible}>
+    <div
+      className={classNames(styles.container, { [styles.active]: isVisible })}
+      onClick={changeVisible}
+    >
       <div className={styles.svgContainer}>
-        <Location />
+        <Location color="#47D18C" />
       </div>
       <input type="text" value={city} readOnly className={styles.input} />
-      <div className={classNames(styles.modal, { [styles.active]: isVisible })}>
+      <div className={styles.modal}>
         <span id="United States" className={styles.option} onClick={changeCity}>
           United States
         </span>

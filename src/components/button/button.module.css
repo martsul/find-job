@@ -175,3 +175,27 @@
   background: #3D425A;
   border-color: #3D425A;
 }
+
+.neutral {
+  background: var(--lGrey-2);
+  color: var(--grey-1);
+}
+
+.neutral svg {
+  stroke: var(--grey-1);
+  fill: transparent;
+}
+
+.neutral:hover {
+  background: var(--lGrey-1);
+}
+
+.neutral:focus {
+  border: 3px solid var(--grey-3);
+  background: var(--lGrey-1);
+}
+
+.neutral:disabled {
+  background: var(--lGrey-2);
+  opacity: .5;
+}

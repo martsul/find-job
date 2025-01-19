@@ -25,6 +25,11 @@
   height: 18px;
   flex-shrink: 0;
   cursor: pointer;
+  transition: transform .2s ease;
+}
+
+.active .svgMax {
+  transform: rotate(180deg);
 }
 
 .modal {
@@ -40,7 +45,7 @@
   z-index: -5000;
 }
 
-.modal.active {
+.active .modal {
   opacity: 1;
   z-index: 1;
   transition: opacity .1s ease;

@@ -1,0 +1,47 @@
+.card {
+  padding: 24px 24px 30px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0px 4px 120px 0px #979FB71A;
+}
+
+.head {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.headButtons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.heart {
+  width: 24px;
+  height: 24px;
+}
+
+.more {
+  width: 22px;
+  height: 22px;
+}
+
+.descriptionItems {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.footerButtons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.document {
+  width: 20px;
+  height: 20px;
+}

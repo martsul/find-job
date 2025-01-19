@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  gap: 10px;
+  min-height: 36px;
+  margin-bottom: 36px;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid #1F8FFF;
+  border-radius: 12px;
+  gap: 6px;
+}
+
+.cross {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  color: #1F8FFF;
+  font: 400 14px/1.6 var(--font);
+  white-space: nowrap;
+}
