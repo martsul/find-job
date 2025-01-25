@@ -1,30 +1,49 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { Tick } from "../../svg/tick";
-import { FilterCardInfo } from "../../types/details";
 import styles from "./details-item.module.css";
 import classNames from "classnames";
+import { useFilters } from "../context/filters-context/use-filters";
+import { FiltersTypes } from "../../types/filters-context-data";
+import { useFilterWorkCards } from "../../hooks/filter-work-cards/use-filter-work-cards";
 
-export const DetailsItem = ({ data }: { data: FilterCardInfo }) => {
-  const { name, text } = data;
-  const [isActive, setActive] = useState(false);
+export const DetailsItem = ({
+  text,
+  type,
+}: {
+  text: string;
+  type: FiltersTypes;
+}) => {
+  const filtersData = useFilters();
+
+  if (!filtersData) {
+    throw new Error("Filters Context Error");
+  }
+
+  const { activeFilters, addFilter, deleteFilter } = filtersData;
 
   const changeActive = useCallback(() => {
-    setActive((value) => !value);
-  }, []);
+    if (text in activeFilters) {
+      deleteFilter(text);
+    } else {
+      addFilter(text, type);
+    }
+  }, [addFilter, deleteFilter, activeFilters, type, text]);
+
+  const count = useFilterWorkCards({ [text]: { name: text, type } }).length;
 
   return (
     <div
-      onClick={changeActive}
-      className={classNames(styles.label, { [styles.active]: isActive })}
-      id={name}
+      className={classNames(styles.label, {
+        [styles.active]: text in activeFilters,
+      })}
     >
-      <div className={styles.container}>
-        <div className={styles.tick}>
+      <button onClick={changeActive} type="button" className={styles.container}>
+        <span className={styles.tick}>
           <Tick></Tick>
-        </div>
+        </span>
         <span className={styles.text}>{text}</span>
-      </div>
-      <span className={styles.count}>123</span>
+      </button>
+      <span className={styles.count}>{count}</span>
     </div>
   );
 };

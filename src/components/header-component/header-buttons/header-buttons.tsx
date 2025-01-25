@@ -1,5 +1,5 @@
-import { useAuthorization } from "../../authorization-context/use-authorization";
 import { Button } from "../../button/button";
+import { useAuthorization } from "../../context/authorization-context/use-authorization";
 import styles from "./header-buttons.module.css";
 
 export const HeaderButtons = () => {

@@ -1,8 +1,9 @@
-export type FilterCardInfo = { text: string; name: string };
+import { FiltersTypes } from "./filters-context-data";
 
 export type FilterCard = {
   title: string;
-  info: FilterCardInfo[];
+  type: FiltersTypes;
+  info: string[];
 };
 
 export type DetailsProps = { data: FilterCard[] };

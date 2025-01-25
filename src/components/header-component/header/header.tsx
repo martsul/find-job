@@ -1,5 +1,5 @@
 import { Logo } from "../../../svg/logo";
-import { useAuthorization } from "../../authorization-context/use-authorization";
+import { useAuthorization } from "../../context/authorization-context/use-authorization";
 import { HeaderAuthorization } from "../header-autorization/header-authorization";
 import { HeaderButtons } from "../header-buttons/header-buttons";
 import { HeaderNav } from "../header-nav/header-nav";

@@ -1,5 +1,5 @@
 import { User } from "../../../svg/user";
-import { useAuthorization } from "../../authorization-context/use-authorization";
+import { useAuthorization } from "../../context/authorization-context/use-authorization";
 import styles from "./header-authorization.module.css";
 
 export const HeaderAuthorization = () => {

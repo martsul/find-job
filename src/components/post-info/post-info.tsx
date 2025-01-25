@@ -2,19 +2,14 @@ import { FC } from "react";
 import { DollarCircle } from "../../svg/dollar-circle";
 import { Location } from "../../svg/location";
 import styles from "./post-info.module.css";
+import { jobCardData } from "../../types/job-card-data";
 
 type Props = {
-  data: {
-    title: string;
-    company?: string;
-    location: string;
-    salary: { sum: string; time: string };
-    text: string;
-  };
+  data: jobCardData;
 };
 
 export const PostInfo: FC<Props> = ({ data }) => {
-  const { location, salary, text, title, company } = data;
+  const { location, salary, workTime, text, title, company } = data;
 
   return (
     <div className={styles.container}>
@@ -32,8 +27,7 @@ export const PostInfo: FC<Props> = ({ data }) => {
             <DollarCircle />
           </span>
           <span className={styles.name}>
-            <strong className={styles.strong}>{salary.sum}</strong> /{" "}
-            {salary.time}
+            <strong className={styles.strong}>{salary}</strong> / {workTime}
           </span>
         </div>
       </div>

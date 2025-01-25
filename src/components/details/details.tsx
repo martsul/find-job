@@ -26,7 +26,7 @@ export const Details: FC<DetailsProps> = ({ data }) => {
   return (
     <aside className={styles.aside}>
       {data.map((element, index) => {
-        const { title, info } = element;
+        const { title, info, type } = element;
 
         return (
           <div
@@ -47,8 +47,8 @@ export const Details: FC<DetailsProps> = ({ data }) => {
               </button>
             </div>
             <div className={styles.items}>
-              {info.map((item, index) => (
-                <DetailsItem data={item} key={index} />
+              {info.map((text, index) => (
+                <DetailsItem text={text} type={type} key={index} />
               ))}
             </div>
           </div>

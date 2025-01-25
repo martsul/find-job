@@ -2,16 +2,19 @@ import { Layout } from "./components/layout/layout";
 import "./reset.css";
 import "./fonts.css";
 import "./root.css";
-import { AuthorizationContextProvider } from "./components/authorization-context/authorization-context";
 // import { MainPage } from "./pages/main/main-page";
 import { FindJobPage } from "./pages/main/find-job-page";
+import { AuthorizationContextProvider } from "./components/context/authorization-context/authorization-context";
+import { FiltersContextProvider } from "./components/context/filters-context/filters-context";
 
 export const App = () => {
   return (
-    <AuthorizationContextProvider>
-      <Layout>
-        <FindJobPage />
-      </Layout>
-    </AuthorizationContextProvider>
+    <FiltersContextProvider>
+      <AuthorizationContextProvider>
+        <Layout>
+          <FindJobPage />
+        </Layout>
+      </AuthorizationContextProvider>
+    </FiltersContextProvider>
   );
 };

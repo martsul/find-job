@@ -17,6 +17,7 @@
   opacity: .8;
   border-radius: 6px;
   cursor: pointer;
+  display: inline-block;
 }
 
 .tick svg {
