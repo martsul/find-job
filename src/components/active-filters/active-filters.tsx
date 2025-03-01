@@ -11,11 +11,10 @@ export const ActiveFilters = () => {
   }
 
   const { activeFilters, deleteFilter } = filtersData;
-  const filtersKeys = Object.keys(activeFilters);
 
   return (
     <div className={styles.container}>
-      {filtersKeys.map((element, index) => (
+      {Array.from(activeFilters).map((element, index) => (
         <FiltersButton key={index} name={element} deleteFilter={deleteFilter} />
       ))}
     </div>

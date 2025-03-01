@@ -6,58 +6,20 @@ import { Button } from "../button/button";
 import { PostInfo } from "../post-info/post-info";
 import { PostsDescriptionItem } from "../posts-description-item/posts-description-item";
 import styles from "./job-card.module.css";
-
-const svg = (
-  <svg
-    width="72"
-    height="72"
-    viewBox="0 0 72 72"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <rect width="72" height="72" rx="36" fill="#E9DFF0" />
-    <g clipPath="url(#clip0_3046_573)">
-      <path
-        d="M52.0362 48.4L26.2522 52L21.9629 48.4H52.0362ZM31.1336 45.7013H26.2522V20H34.3216C36.6719 20.0011 38.9257 20.9348 40.5882 22.5963C42.2506 24.2577 43.1858 26.511 43.1882 28.8613C43.1882 31.84 41.7109 34.4667 39.4562 36.0853L46.6802 45.7H40.5669L34.5856 37.728H31.1336V45.7013ZM31.1336 32.848H34.3229C35.3795 32.8469 36.3926 32.4267 37.1398 31.6796C37.8869 30.9324 38.3072 29.9193 38.3082 28.8627C38.3054 27.8069 37.8845 26.7953 37.1376 26.0491C36.3907 25.303 35.3786 24.8831 34.3229 24.8813H31.1336V32.848Z"
-        fill="#9747FF"
-      />
-    </g>
-    <defs>
-      <clipPath id="clip0_3046_573">
-        <rect
-          width="32"
-          height="32"
-          fill="white"
-          transform="translate(21 20)"
-        />
-      </clipPath>
-    </defs>
-  </svg>
-);
-
-const DescriptionsItems = ["Fulltime", "No experience", "Designer", "Remote"];
+import { SvgFromText } from "../svg-from-text/svg-from-text";
+import { Employment } from "../../redux/entities/employments/employments-slice";
 
 type Props = {
-  data: {
-    filtersInfo: {
-      experience: string;
-      type: string;
-      location: string;
-    };
-    title: string;
-    company?: string;
-    location: string;
-    salary: string;
-    workTime: string;
-    text: string;
-  };
+  data: Employment;
 };
 
 export const JobCard: FC<Props> = ({ data }) => {
+  const { descriptors, logo } = data;
+
   return (
     <div className={styles.card}>
       <div className={styles.head}>
-        {svg}
+        <SvgFromText text={logo} />
         <div className={styles.headButtons}>
           <Button
             info={{
@@ -87,7 +49,7 @@ export const JobCard: FC<Props> = ({ data }) => {
       </div>
       <PostInfo data={data} />
       <div className={styles.descriptionItems}>
-        {DescriptionsItems.map((item, ind) => (
+        {descriptors.map((item, ind) => (
           <PostsDescriptionItem key={ind} text={item} />
         ))}
       </div>

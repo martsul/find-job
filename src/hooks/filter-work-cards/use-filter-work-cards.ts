@@ -1,4 +1,4 @@
-import { worksCards } from "../../mock/works-cards/work";
+// import { worksCards } from "../../mock/works-cards/work";
 import { FiltersContextValue } from "../../types/filters-context-data";
 import { jobCardData } from "../../types/job-card-data";
 

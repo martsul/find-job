@@ -3,17 +3,12 @@ import { Tick } from "../../svg/tick";
 import styles from "./details-item.module.css";
 import classNames from "classnames";
 import { useFilters } from "../context/filters-context/use-filters";
-import { FiltersTypes } from "../../types/filters-context-data";
-import { useFilterWorkCards } from "../../hooks/filter-work-cards/use-filter-work-cards";
+import { useAppSelector } from "../../redux/hooks";
+import { selectCollectionOfRelevantCards } from "../../redux/entities/employments/employments-slice";
 
-export const DetailsItem = ({
-  text,
-  type,
-}: {
-  text: string;
-  type: FiltersTypes;
-}) => {
+export const DetailsItem = ({ text }: { text: string }) => {
   const filtersData = useFilters();
+  const collection = useAppSelector(selectCollectionOfRelevantCards);
 
   if (!filtersData) {
     throw new Error("Filters Context Error");
@@ -22,19 +17,17 @@ export const DetailsItem = ({
   const { activeFilters, addFilter, deleteFilter } = filtersData;
 
   const changeActive = useCallback(() => {
-    if (text in activeFilters) {
+    if (activeFilters.has(text)) {
       deleteFilter(text);
     } else {
-      addFilter(text, type);
+      addFilter(text);
     }
-  }, [addFilter, deleteFilter, activeFilters, type, text]);
-
-  const count = useFilterWorkCards({ [text]: { name: text, type } }).length;
+  }, [addFilter, deleteFilter, activeFilters, text]);
 
   return (
     <div
       className={classNames(styles.label, {
-        [styles.active]: text in activeFilters,
+        [styles.active]: activeFilters.has(text),
       })}
     >
       <button onClick={changeActive} type="button" className={styles.container}>
@@ -43,7 +36,7 @@ export const DetailsItem = ({
         </span>
         <span className={styles.text}>{text}</span>
       </button>
-      <span className={styles.count}>{count}</span>
+      <span className={styles.count}>{collection[text] || 0}</span>
     </div>
   );
 };

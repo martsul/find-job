@@ -6,6 +6,7 @@ import classNames from "classnames";
 
 export const SelectInSearch = () => {
   const { city, changeCity } = useChangeCity();
+  
   const { isVisible, changeVisible } = useChangeVisible();
 
   return (

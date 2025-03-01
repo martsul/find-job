@@ -1,7 +1,6 @@
 export type FiltersContextValue = {
-  activeFilters: Record<string, { name: string; type: FiltersTypes }>;
-  addFilter: (filter: string, type: FiltersTypes) => void;
+  activeFilters: Set<string>;
+  addFilter: (filter: string) => void;
   deleteFilter: (filter: string) => void;
+  updateFilter: (oldFilter: string, newFilter: string) => void;
 };
-
-export type FiltersTypes = "experience" | "type" | "location";

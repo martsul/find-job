@@ -2,11 +2,6 @@ import { FC } from "react";
 import { DollarCircle } from "../../svg/dollar-circle";
 import { Location } from "../../svg/location";
 import styles from "./post-info.module.css";
-import { jobCardData } from "../../types/job-card-data";
-
-type Props = {
-  data: jobCardData;
-};
 
 export const PostInfo: FC<Props> = ({ data }) => {
   const { location, salary, workTime, text, title, company } = data;
