@@ -49,7 +49,7 @@
   color: var(--green-2);
 }
 
-.link:active, .sublink:active {
+.link.active, .sublink.active {
   color: var(--green-1);
 }
 

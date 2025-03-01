@@ -1,0 +1,57 @@
+body:has(.modal) {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #252A3F66;
+  overflow: auto;
+  display: flex;
+  padding: 23px;
+  justify-content: center;
+}
+
+.window {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  max-width: max-content;
+  z-index: 1;
+  height: max-content;
+  overflow: hidden;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--grey-2);
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 1;
+}
+
+.svg {
+  width: 9px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}

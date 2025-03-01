@@ -1,0 +1,236 @@
+.modal {
+  max-width: 708px;
+  width: 100%;
+}
+
+.top {
+  padding: 10.5px 0 34.5px;
+  font: 700 18px/1.3 var(--font);
+  color: var(--black-1);
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.top::before {
+  content: "";
+  display: inline-block;
+  width: 100vw;
+  height: 1px;
+  background: var(--lGrey-1);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.header {
+  margin: 30px 0 30px 10px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.name {
+  font: 700 24px/1.3 var(--font);
+  color: var(--black-1);
+}
+
+.banner {
+  color: #F59A74;
+  width: 52px;
+  height: 29px;
+  background: #FDEBE3;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 500 13px/1.3 var(--font);
+}
+
+.employersDetails {
+  display: flex;
+  gap: 26px;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.company, .address, .date {
+  font: 400 16px/1.3 var(--font);
+}
+
+.company {
+  color: var(--blue-1);
+}
+
+.address, .date {
+  color: var(--grey-1);
+  position: relative;
+}
+
+.location, .date {
+  position: relative;
+}
+
+.location::before, .date::before {
+  content: ".";
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -70%);
+  left: -12px;
+}
+
+.locationSvg {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.table {
+  border: 1.5px solid var(--lGrey-1);
+  border-radius: 16px;
+  padding: 26px 19px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.column:not(:first-child)::before {
+  content: "";
+  display: inline-block;
+  height: 32px;
+
+  width: 2px;
+  background: var(--lGrey-1);
+  left: -19px;
+  top: 50%;
+  position: absolute;
+  transform: translate(0, -50%);
+}
+
+.columnName {
+  font: 400 14px/1.6 var(--font);
+  color: var(--grey-1);
+}
+
+.columnInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.columnsSvg {
+  width: 18px;
+  height: 18px;
+}
+
+.columnText {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font: 400 12px/1.6 var(--font);
+  color: var(--grey-1);
+}
+
+.columnText strong {
+  font: 600 14px/1.2 var(--font);
+  color: var(--black-1);
+}
+
+.description, .requirements {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+
+.descriptionTitle, .requirementsTitle {
+  font: 700 18px/1.3 var(--font);
+  color: var(--black-1);
+}
+
+.descriptionText, .requirementsItem {
+  font: 400 16px/1.6 var(--font);
+  color: var(--grey-1);
+}
+
+.requirements {
+  margin-bottom: 24px;
+}
+
+.requirementsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.requirementsItem {
+  position: relative;
+  padding-left: 26px;
+}
+
+.requirementsItem::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 5px solid var(--green-2);
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  opacity: .5;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  position: relative;
+}
+
+.footer::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 100vw;
+  height: 1px;
+  background: var(--lGrey-1);
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.footerText {
+  font: 600 18px/1.3 var(--font);
+  color: var(--black-1);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.document {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}

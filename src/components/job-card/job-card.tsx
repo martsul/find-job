@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { DocumentText } from "../../svg/document-text";
 import { Heart } from "../../svg/heart";
 import { More } from "../../svg/more";
@@ -8,13 +8,20 @@ import { PostsDescriptionItem } from "../posts-description-item/posts-descriptio
 import styles from "./job-card.module.css";
 import { SvgFromText } from "../svg-from-text/svg-from-text";
 import { Employment } from "../../redux/entities/employments/employments-slice";
+import { Modal } from "../modals/modal";
+import { EmployersModalContainer } from "../modals/employers-modal/employers-modal-container";
 
 type Props = {
   data: Employment;
 };
 
 export const JobCard: FC<Props> = ({ data }) => {
-  const { descriptors, logo } = data;
+  const { descriptors, logo, _id } = data;
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  const closeModal = () => {
+    setIsOpenModal(false);
+  };
 
   return (
     <div className={styles.card}>
@@ -73,11 +80,17 @@ export const JobCard: FC<Props> = ({ data }) => {
             size: "big",
             style: "neutral",
             type: "button",
+            click: () => {
+              setIsOpenModal(true);
+            },
           }}
         >
           Detail Information
         </Button>
       </div>
+      <Modal isOpen={isOpenModal} onClose={closeModal}>
+        <EmployersModalContainer id={_id} />
+      </Modal>
     </div>
   );
 };
