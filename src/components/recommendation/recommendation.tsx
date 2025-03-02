@@ -1,5 +1,4 @@
 import { FC } from "react";
-// import { useFilterWorkCards } from "../../hooks/filter-work-cards/use-filter-work-cards";
 import { ActiveFilters } from "../active-filters/active-filters";
 import { useFilters } from "../context/filters-context/use-filters";
 import styles from "./recommendation.module.css";

@@ -17,7 +17,7 @@ export type Employment = {
 export type EmploymentState = {
   entities: Record<Employment["_id"], Employment>;
   ids: Employment["_id"][];
-  requestStatus: string;
+  requestStatus: "idle" | "pending" | "rejected" | "fulfilled";
   collectionOfRelevantCards: Record<string, number>;
 };
 

@@ -15,13 +15,17 @@ app.get("/api/employments/:id", async (req, res) => {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
 
-  const employmentId = req.params.id;
-  const employersDetails = client.db().collection("employersDetails");
-  const currentEmployer = await employersDetails.findOne({
-    _id: new ObjectId(employmentId),
-  });
+  try {
+    const employmentId = req.params.id;
+    const employersDetails = client.db().collection("employersDetails");
+    const currentEmployer = await employersDetails.findOne({
+      _id: new ObjectId(employmentId),
+    });
 
-  res.send(currentEmployer);
+    res.send(currentEmployer);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.get("/api/employments", async (req, res) => {

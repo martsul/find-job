@@ -1,14 +1,18 @@
 import { Outlet } from "react-router-dom";
 import { Footer } from "../footer-component/footer/footer";
 import { Header } from "../header-component/header/header";
-import styles from "./layout.module.css";
+import { FC } from "react";
 
-export const Layout = () => {
+type Props = {
+  thereIsFooter?: boolean;
+};
+
+export const Layout: FC<Props> = ({ thereIsFooter = true }) => {
   return (
-    <div className={styles.background}>
+    <>
       <Header />
       <Outlet />
-      <Footer />
-    </div>
+      {thereIsFooter && <Footer />}
+    </>
   );
 };
