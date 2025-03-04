@@ -1,54 +1,26 @@
+require("dotenv").config();
 const express = require("express");
-const { MongoClient, ObjectId } = require("mongodb");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const mongoose = require("mongoose");
+const router = require("./router/index");
 
+const PORT = process.env.PORT || 5000;
 const app = express();
 
-const client = new MongoClient(
-  "mongodb+srv://martsul:martsul@find-job.jkl8a.mongodb.net/?retryWrites=true&w=majority&appName=find-job"
-);
-
-app.get("/api/employments/:id", async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-
-  try {
-    const employmentId = req.params.id;
-    const employersDetails = client.db().collection("employersDetails");
-    const currentEmployer = await employersDetails.findOne({
-      _id: new ObjectId(employmentId),
-    });
-
-    res.send(currentEmployer);
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-app.get("/api/employments", async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-
-  const employments = client.db().collection("employment");
-  const allEmployments = await employments.find().toArray();
-
-  res.send(allEmployments);
-});
+app.use(express.json());
+app.use(cookieParser());
+app.use(cors());
+app.use("/api", router);
 
 const start = async () => {
+  app.listen(PORT, () => {
+    console.log("Server is running");
+  });
   try {
-    await client.connect();
+    // await mongoose.connect(process.env.DB_URL);
     console.log("Mongo work");
-    app.listen(3001, () => {
-      console.log("Server is running");
-    });
+    
   } catch (error) {
     console.log(error);
   }

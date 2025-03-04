@@ -6,6 +6,9 @@ type ButtonsDataInfo = {
   kind: "base" | "svg" | "svground";
   type: "submit" | "button";
   click?: MouseEventHandler<HTMLButtonElement>;
+  parameters?:
+    | "button"
+    | { role: "link"; link: string; activeStyle?: ButtonsDataInfo["style"] };
 };
 
 export type ButtonsData = {

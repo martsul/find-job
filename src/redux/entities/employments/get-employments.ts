@@ -6,7 +6,7 @@ export const getEmployments = createAsyncThunk(
   "employments/getEmployments",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch("http://localhost:3001/api/employments");
+      const response = await fetch("http://localhost:5000/api/employments");
       const result = await response.json();
 
       if (!result.length) {
@@ -30,4 +30,3 @@ export const getEmployments = createAsyncThunk(
     },
   }
 );
-

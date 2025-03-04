@@ -1,0 +1,115 @@
+.label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: start;
+  gap: 12px;
+}
+
+.labelText {
+  color: var(--black-1);
+  font: 700 16px/1.3 var(--font);
+}
+
+.labelText strong {
+  color: var(--red-1);
+}
+
+.inputContainer {
+  width: 100%;
+  border-radius: 16px;
+  background: var(--lGrey-2);
+  padding: 18px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 2px solid transparent;
+}
+
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.icon path {
+  fill: var(--green-1);
+}
+
+.input {
+  background: transparent;
+  width: 100%;
+  font: 400 14px/1.6 var(--font);
+  color: var(--black-1);
+}
+
+.input::placeholder {
+  color: var(--grey-1);
+}
+
+.eye {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.eye::before {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  background: #7F879E;
+  position: absolute;
+  top: 16%;
+  left: 16%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 0;
+  transition: width .1s ease, left .1s ease, top .1s ease;
+}
+
+.eye.hidden::before {
+  width: calc(100%);
+  top: 50%;
+  left: 50%;
+}
+
+.inputContainer:hover {
+  background: var(--lGrey-1);
+  cursor: text;
+}
+
+.inputContainer:hover .input::placeholder {
+  color: var(--sBlack-3);
+}
+
+.inputContainer:has(.input:focus-visible) {
+  border-color: #B1DFC9;
+}
+
+.inputContainer:has(.input:focus) {
+  background: #fff;
+  border-color: var(--grey-3);
+}
+
+.input:focus::placeholder {
+  opacity: 0;
+}
+
+.label:has(.input:disabled) {
+  opacity: .5;
+}
+
+.inputContainer:has(.input:disabled) {
+  background: var(--lGrey-2);
+  cursor: default;
+}
+
+.input:disabled:hover::placeholder {
+  color: var(--grey-1);
+}
+
+.input:disabled+.eye {
+  cursor: default;
+  pointer-events: none;
+}

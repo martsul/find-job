@@ -72,7 +72,7 @@
   background: var(--green-1);
 }
 
-.secondary:focus {
+.secondary:focus-visible {
   border: 3px solid #269D62;
 }
 
@@ -97,7 +97,7 @@
   background: #252A3F;
 }
 
-.primary:focus {
+.primary:focus-visible {
   background: #252A3F;
   border-color: #AAAFBE
 }
@@ -143,31 +143,31 @@
   stroke: #3D425A;
 }
 
-.big.base.bordered:focus {
+.big.base.bordered:focus-visible {
   border: 3px solid #D4D7DF;
   padding: 15px 35px;
 }
 
-.medium.base.bordered:focus {
+.medium.base.bordered:focus-visible {
   border: 3px solid #D4D7DF;
   padding: 10px 26px;
 }
 
-.small.base.bordered:focus {
+.small.base.bordered:focus-visible {
   border: 2px solid #D4D7DF;
   padding: 9px 15px;
 }
 
-.xsmall.base.bordered:focus {
+.xsmall.base.bordered:focus-visible {
   border: 2px solid #D4D7DF;
   padding: 3px 9px;
 }
 
-.bordered:focus {
+.bordered:focus-visible {
   color: #3D425A;
 }
 
-.bordered:focus svg {
+.bordered:focus-visible svg {
   stroke: #3D425A;
 }
 
@@ -190,7 +190,7 @@
   background: var(--lGrey-1);
 }
 
-.neutral:focus {
+.neutral:focus-visible {
   border: 3px solid var(--grey-3);
   background: var(--lGrey-1);
 }

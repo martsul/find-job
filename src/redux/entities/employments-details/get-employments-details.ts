@@ -10,7 +10,7 @@ export const getEmploymentsDetails = createAsyncThunk(
   async (employmentId: EmploymentsDetails["_id"], { rejectWithValue }) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/employments/${employmentId}`
+        `http://localhost:5000/api/employments/${employmentId}`
       );
 
       const result = await response.json();

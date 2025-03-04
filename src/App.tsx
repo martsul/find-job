@@ -9,15 +9,30 @@ import { FiltersContextProvider } from "./components/context/filters-context/fil
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AuthorizationPage } from "./pages/authorization/authorization-page";
 
 export const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout thereIsFooter={false} />,
+      element: <Layout />,
       children: [
         { index: true, element: <MainPage /> },
         { path: "employers", element: <FindJobPage /> },
+      ],
+    },
+    {
+      path: "/authorization",
+      element: <Layout thereIsFooter={false} />,
+      children: [
+        {
+          path: "signin",
+          element: <AuthorizationPage thereIsAccount={true} />,
+        },
+        {
+          path: "signup",
+          element: <AuthorizationPage thereIsAccount={false} />,
+        },
       ],
     },
   ]);

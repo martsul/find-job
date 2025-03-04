@@ -1,10 +1,7 @@
 import { Button } from "../../button/button";
-import { useAuthorization } from "../../context/authorization-context/use-authorization";
 import styles from "./header-buttons.module.css";
 
 export const HeaderButtons = () => {
-  const { signCallback, sign } = useAuthorization();
-
   return (
     <div className={styles.buttons}>
       <Button
@@ -13,10 +10,10 @@ export const HeaderButtons = () => {
           style: "bordered",
           type: "button",
           kind: "base",
-          click: signCallback,
+          parameters: { role: "link", link: "/authorization/signin" },
         }}
       >
-        {sign? "Start hiring" : "Sign In"}
+        Sign In
       </Button>
       <Button
         info={{
@@ -24,10 +21,10 @@ export const HeaderButtons = () => {
           style: "primary",
           type: "button",
           kind: "base",
-          click: signCallback,
+          parameters: { role: "link", link: "/authorization/signup" },
         }}
       >
-        {sign? "Start hiring" : "Sign Up"}
+        Sign Up
       </Button>
     </div>
   );
