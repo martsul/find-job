@@ -1,30 +1,28 @@
-import { useState } from "react";
 import { Email } from "../../svg/email";
 import { Lock } from "../../svg/lock";
 import { Person } from "../../svg/person";
 import { Button } from "../button/button";
 import { Input } from "../input/input";
 import styles from "./authorization-form.module.css";
+import { useAuthForm } from "./use-authorization-form";
 
 export const AuthorizationForm = ({
   thereIsAccount,
 }: {
   thereIsAccount: boolean;
 }) => {
-  const [inputValues, setInputValue] = useState({
-    nickname: "",
-    email: "",
-    password: "",
-  });
-
-  const handleInput: React.FormEventHandler<HTMLInputElement> = (event) => {
-    const target = event.currentTarget;
-
-    setInputValue({ ...inputValues, [target.name]: target.value });
-  };
+  const {
+    handleInput,
+    handlerSubmitLogIn,
+    handlerSubmitRegistration,
+    inputValues,
+  } = useAuthForm();
 
   return (
-    <form className={styles.form}>
+    <form
+      onSubmit={thereIsAccount ? handlerSubmitLogIn : handlerSubmitRegistration}
+      className={styles.form}
+    >
       <h2 className={styles.title}>{thereIsAccount ? "Sign In" : "Sign Up"}</h2>
       <div className={styles.buttons}>
         <div className={styles.buttonContainer}>
@@ -104,11 +102,6 @@ export const AuthorizationForm = ({
           kind: "base",
           style: "neutral",
           type: "submit",
-          parameters: {
-            activeStyle: "secondary",
-            link: "/authorization/signup",
-            role: "link",
-          },
         }}
       >
         Continue
