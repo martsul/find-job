@@ -7,8 +7,14 @@ class UserControllers {
     try {
       const errors = validationResult(req);
 
-      if (!errors.isEmpty) {
-        return next(ApiError.BadRequest("Ошибка при валидации", errors));
+      if (!errors.isEmpty()) {
+        if (errors.errors[0].path === "email") {
+          return next(ApiError.BadRequest("Некорректный email"));
+        } else {
+          return next(
+            ApiError.BadRequest("Пароль должен содеражать от 4 до 32 символов")
+          );
+        }
       }
       const { email, password, nickname } = req.body;
       const userData = await userService.registration(

@@ -8,8 +8,10 @@ import { useAuthForm } from "./use-authorization-form";
 
 export const AuthorizationForm = ({
   thereIsAccount,
+  errorMessage,
 }: {
   thereIsAccount: boolean;
+  errorMessage?: string;
 }) => {
   const {
     handleInput,
@@ -60,6 +62,7 @@ export const AuthorizationForm = ({
           </Button>
         </div>
       </div>
+      {errorMessage && <p className={styles.error}>{errorMessage}</p>}
       <div className={styles.inputs}>
         {!thereIsAccount && (
           <Input
@@ -100,7 +103,7 @@ export const AuthorizationForm = ({
         info={{
           size: "big",
           kind: "base",
-          style: "neutral",
+          style: "secondary",
           type: "submit",
         }}
       >

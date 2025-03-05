@@ -48,7 +48,7 @@ class UserService {
     const user = await UserModel.findOne({ email });
 
     if (!user) {
-      throw ApiError.BadRequest("Пользователь с таким адресом не существует");
+      throw ApiError.BadRequest("Пользователя с таким адресом не существует");
     }
 
     const isPassEquals = await bcrypt.compare(password, user.password);

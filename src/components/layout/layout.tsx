@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 import { Footer } from "../footer-component/footer/footer";
-import { Header } from "../header-component/header/header";
 import { FC } from "react";
 import { useAppDispatch } from "../../redux/hooks";
 import { checkAuth } from "../../redux/authorization/thunks/check-auth";
+import { HeaderContainer } from "../header-component/header/hesader-container";
 
 type Props = {
   thereIsFooter?: boolean;
@@ -15,7 +15,7 @@ export const Layout: FC<Props> = ({ thereIsFooter = true }) => {
 
   return (
     <>
-      <Header />
+      <HeaderContainer />
       <Outlet />
       {thereIsFooter && <Footer />}
     </>

@@ -4,6 +4,9 @@
   margin: 60px auto 0;
   padding: 30px;
   border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
@@ -18,6 +21,7 @@
   justify-content: center;
   gap: 20px;
   margin-bottom: 15px;
+  width: 100%;
 }
 
 .buttonContainer {
@@ -29,4 +33,16 @@
   flex-direction: column;
   gap: 15px;
   margin-bottom: 32px;
+  width: 100%;
+}
+
+.error {
+  color: var(--red-1);
+  font: 400 16px/1.3 var(--font);
+  padding: 20px 14px;
+  border: 1px solid var(--red-1);
+  border-radius: 13px;
+  margin-bottom: 14px;
+  background: #E600190A;
+  width: 100%;
 }

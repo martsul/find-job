@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import AuthService from "../../../services/AuthService";
+import { AxiosError } from "axios";
 
 export const logout = createAsyncThunk(
   "authorization/thunks/logout",
@@ -10,7 +11,13 @@ export const logout = createAsyncThunk(
       localStorage.removeItem("token");
       return response;
     } catch (error) {
-      return rejectWithValue(error);
+      if (error instanceof AxiosError) {
+        return rejectWithValue(
+          error?.response?.data || { message: "Unknown error" }
+        );
+      }
+
+      return rejectWithValue({ message: "Unexpected error occurred" });
     }
   }
 );

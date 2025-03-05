@@ -1,31 +1,51 @@
+import { AuthorizationState } from "../../../types/auth-state";
 import { Button } from "../../button/button";
 import styles from "./header-buttons.module.css";
+import { useHeaderButtons } from "./use-header-buttons";
 
-export const HeaderButtons = () => {
+export const HeaderButtons = ({
+  authStatus,
+}: {
+  authStatus: AuthorizationState["status"];
+}) => {
+  const { buttonsLinks, buttonsText, handlerLogOut } =
+    useHeaderButtons(authStatus);
+
   return (
     <div className={styles.buttons}>
       <Button
         info={{
           size: "small",
           style: "bordered",
-          type: "button",
           kind: "base",
-          parameters: { role: "link", link: "/authorization/signin" },
+          parameters: { role: "link", link: buttonsLinks.first },
         }}
       >
-        Sign In
+        {buttonsText.first}
       </Button>
       <Button
         info={{
           size: "small",
           style: "primary",
-          type: "button",
           kind: "base",
-          parameters: { role: "link", link: "/authorization/signup" },
+          parameters: { role: "link", link: buttonsLinks.second },
         }}
       >
-        Sign Up
+        {buttonsText.second}
       </Button>
+      {authStatus === "authorized" && (
+        <Button
+          info={{
+            size: "small",
+            style: "primary",
+            kind: "base",
+            type: "button",
+            click: handlerLogOut,
+          }}
+        >
+          Log Out
+        </Button>
+      )}
     </div>
   );
 };

@@ -1,9 +1,9 @@
-import { AuthorizationForm } from "../../components/authorization-form/authorization-form";
+import { AuthorizationFormContainer } from "../../components/authorization-form/authorization-form-container";
 
 export const AuthorizationPage = ({
   thereIsAccount,
 }: {
   thereIsAccount: boolean;
 }) => {
-  return <AuthorizationForm thereIsAccount={thereIsAccount} />;
+  return <AuthorizationFormContainer thereIsAccount={thereIsAccount} />;
 };

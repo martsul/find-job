@@ -1,21 +1,25 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../../../svg/logo";
-import { useAuthorization } from "../../context/authorization-context/use-authorization";
-import { HeaderAuthorization } from "../header-autorization/header-authorization";
 import { HeaderButtons } from "../header-buttons/header-buttons";
 import { HeaderNav } from "../header-nav/header-nav";
 import styles from "./header.module.css";
+import { AuthorizationState } from "../../../types/auth-state";
+import { HeaderAuthorizationContainer } from "../header-autorization/header-authorization-container";
 
-export const Header = () => {
-  const { sign } = useAuthorization();
-
+export const Header = ({
+  authStatus,
+}: {
+  authStatus: AuthorizationState["status"];
+}) => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Link to="/" className={styles.logo}>{<Logo />}</Link>
+        <Link to="/" className={styles.logo}>
+          {<Logo />}
+        </Link>
         <HeaderNav />
-        {sign && <HeaderAuthorization />}
-        <HeaderButtons />
+        {authStatus === "authorized" && <HeaderAuthorizationContainer />}
+        <HeaderButtons authStatus={authStatus} />
       </div>
     </header>
   );

@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import AuthService from "../../../services/AuthService";
+import { AxiosError } from "axios";
 
 export const login = createAsyncThunk(
   "authorization/thunks/login",
@@ -10,15 +11,16 @@ export const login = createAsyncThunk(
     try {
       const response = await AuthService.login(email, password);
 
-      if (!response) {
-        return rejectWithValue("No User Data!");
-      }
-
       localStorage.setItem("token", response.data.accessToken);
       return response.data.user;
     } catch (error) {
-      console.log(error)
-      rejectWithValue(error);
+      if (error instanceof AxiosError) {
+        return rejectWithValue(
+          error?.response?.data || { message: "Unknown error" }
+        );
+      }
+
+      return rejectWithValue({ message: "Unexpected error occurred" });
     }
   }
 );

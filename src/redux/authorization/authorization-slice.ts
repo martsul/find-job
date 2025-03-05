@@ -1,64 +1,54 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IUser } from "../../types/i-user";
 import { login } from "./thunks/login";
 import { registration } from "./thunks/registration";
 import { logout } from "./thunks/logout";
 import { checkAuth } from "./thunks/check-auth";
-
-type AuthorizationState = {
-  status: "not authorized" | "pending" | "authorized";
-  data: IUser | object;
-};
+import {
+  useAuthorized,
+  setError,
+  setNotAuthorized,
+  setPending,
+} from "./auth-hooks";
+import { AuthorizationState } from "../../types/auth-state";
+import { AuthError } from "../../types/auth-error";
 
 const initialState: AuthorizationState = {
   status: "not authorized",
-  data: {},
+  data: null,
 };
 
 export const authorizationSlice = createSlice({
   name: "authorizationSlice",
   initialState,
   reducers: {},
+  selectors: {
+    selectAuthStatus: (state) => state.status,
+    selectAuthData: (state) => state.data,
+  },
   extraReducers: (builder) =>
     builder
-      .addCase(login.pending, (state) => {
-        state.status = "pending";
-      })
-      .addCase(login.rejected, (state) => {
-        state.status = "not authorized";
-      })
+      .addCase(login.pending, setPending)
+      .addCase(login.rejected, (state, { payload }) =>
+        setError(state, payload as AuthError)
+      )
       .addCase(login.fulfilled, (state, { payload }) => {
-        state.status = "authorized";
-        state.data = payload as IUser;
+        useAuthorized(state, payload);
       })
-      .addCase(checkAuth.pending, (state) => {
-        state.status = "pending";
-      })
-      .addCase(checkAuth.rejected, (state) => {
-        state.status = "not authorized";
-      })
+      .addCase(checkAuth.pending, setPending)
+      .addCase(checkAuth.rejected, setNotAuthorized)
       .addCase(checkAuth.fulfilled, (state, { payload }) => {
-        state.status = "authorized";
-        state.data = payload as IUser;
+        useAuthorized(state, payload);
       })
-      .addCase(registration.pending, (state) => {
-        state.status = "pending";
-      })
-      .addCase(registration.rejected, (state) => {
-        state.status = "not authorized";
+      .addCase(registration.pending, setPending)
+      .addCase(registration.rejected, (state, { payload }) => {
+        setError(state, payload as AuthError);
       })
       .addCase(registration.fulfilled, (state, { payload }) => {
-        state.status = "authorized";
-        state.data = payload as IUser;
+        useAuthorized(state, payload);
       })
-      .addCase(logout.pending, (state) => {
-        state.status = "pending";
-      })
-      .addCase(logout.rejected, (state) => {
-        state.status = "authorized";
-      })
-      .addCase(logout.fulfilled, (state) => {
-        state.status = "not authorized";
-        state.data = {};
-      }),
+      .addCase(logout.pending, setPending)
+      .addCase(logout.fulfilled, setNotAuthorized),
 });
+
+export const { selectAuthData, selectAuthStatus } =
+  authorizationSlice.selectors;

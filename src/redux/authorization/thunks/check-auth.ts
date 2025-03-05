@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { AuthResponse } from "../../../types/auth-response";
 import { API_URL } from "../../../http";
 
@@ -14,7 +14,13 @@ export const checkAuth = createAsyncThunk(
       localStorage.setItem("token", response.data.accessToken);
       return response.data.user;
     } catch (error) {
-      return rejectWithValue(error);
+      if (error instanceof AxiosError) {
+        return rejectWithValue(
+          error?.response?.data || { message: "Unknown error" }
+        );
+      }
+
+      return rejectWithValue({ message: "Unexpected error occurred" });
     }
   }
 );

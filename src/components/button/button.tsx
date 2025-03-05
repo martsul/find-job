@@ -19,7 +19,6 @@ export const Button: FC<ButtonsData> = ({ children, info }) => {
           styles[kind]
         )}
       >
-        <div></div>
         {children}
       </button>
     );
@@ -28,7 +27,6 @@ export const Button: FC<ButtonsData> = ({ children, info }) => {
 
     return (
       <NavLink
-        type={type}
         to={link}
         className={({ isActive }) =>
           classNames(

@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import AuthService from "../../../services/AuthService";
+import { AxiosError } from "axios";
 
 export const registration = createAsyncThunk(
   "authorization/thunks/registration",
@@ -18,14 +19,16 @@ export const registration = createAsyncThunk(
         nickname
       );
 
-      if (!response) {
-        return rejectWithValue("No User Data!");
-      }
-
       localStorage.setItem("token", response.data.accessToken);
       return response.data.user;
     } catch (error) {
-      return rejectWithValue(error);
+      if (error instanceof AxiosError) {
+        return rejectWithValue(
+          error?.response?.data || { message: "Unknown error" }
+        );
+      }
+
+      return rejectWithValue({ message: "Unexpected error occurred" });
     }
   }
 );
