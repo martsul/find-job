@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthorizationPage } from "./pages/authorization/authorization-page";
+import { Candidates } from "./pages/candidates/candidates";
 
 export const App = () => {
   const router = createBrowserRouter([
@@ -19,6 +20,7 @@ export const App = () => {
       children: [
         { index: true, element: <MainPage /> },
         { path: "employers", element: <FindJobPage /> },
+        { path: "candidates", element: <Candidates /> },
       ],
     },
     {

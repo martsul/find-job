@@ -71,9 +71,7 @@ const EmployersModalHeader: FC<EmployersModalHeaderType> = ({
     <div className={styles.header}>
       <div className={styles.title}>
         <h3 className={styles.name}>{name}</h3>
-        {howOldPosted < 1740850264628 && (
-          <span className={styles.banner}>New</span>
-        )}
+        {howOldPosted < 86400000 && <span className={styles.banner}>New</span>}
       </div>
       <div className={styles.employersDetails}>
         <span className={styles.company}>{company}</span>

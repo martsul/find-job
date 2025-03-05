@@ -1,25 +1,18 @@
-import { DetailsAndResults } from "../../components/details-and-results/details-and-results";
+import { Details } from "../../components/details/details";
+import { JobCardsContainer } from "../../components/job-cards/job-cards-container";
+import { Recommendation } from "../../components/recommendation/recommendation";
 import { SearchBar } from "../../components/search-bar/search-bar";
-import { FilterCard } from "../../types/details";
-
-const DETAILS_DATA: FilterCard[] = [
-  {
-    title: "Experience Level",
-    info: ["0-2 years", "3-5 years", "6-9 years", "10+ years"],
-  },
-  {
-    title: "Type of employment",
-    info: ["Fulltime", "Part-Time", "Remote", "Internship/Trainee", "Hourly"],
-  },
-  {
-    title: "Location",
-    info: ["Saudi Arabia", "United States", "Germany", "Australia"],
-  },
-];
+import { DETAILS_DATA } from "../../mock/details-data";
+import styles from "./find-job-page.module.css";
 
 export const FindJobPage = () => (
   <>
     <SearchBar></SearchBar>
-    <DetailsAndResults data={DETAILS_DATA} />
+    <div className={styles.container}>
+      <Details data={DETAILS_DATA} />
+      <Recommendation>
+        <JobCardsContainer />
+      </Recommendation>
+    </div>
   </>
 );

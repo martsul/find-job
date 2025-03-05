@@ -1,0 +1,120 @@
+.card {
+  padding: 24px 24px 50px;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.imgContainer {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  width: 100%;
+}
+
+.headerButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid #AAAFBE;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+}
+
+.heart {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.nameLine {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.cardText {
+  color: var(--grey-1);
+  font: 500 14px/1.3 var(--font);
+}
+
+.cardText strong {
+  font: 600 14px/1.1 var(--font);
+  color: var(--black-1);
+}
+
+.specialization {
+  color: var(--black-1);
+  font: 700 18px/1.3 var(--font);
+}
+
+.contacts {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.location, .salary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.locationSvg, .dollar {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.mainText {
+  color: var(--grey-1);
+  font: 400 16px/1.6 var(--font);
+}
+
+.descriptors {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.descriptor {
+  padding: 8px 14px;
+  background: var(--lGrey-3);
+  color: var(--grey-1);
+  font: 500 14px/1.3 var(--font);
+  border-radius: 12px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.message {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}

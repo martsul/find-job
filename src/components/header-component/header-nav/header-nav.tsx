@@ -15,9 +15,16 @@ export const HeaderNav = () => {
       >
         Employers
       </NavLink>
-      <a href="#" className={styles.link}>
+      <NavLink
+        to="/candidates"
+        className={({ isActive }) =>
+          classNames(styles.link, {
+            [styles.active]: isActive,
+          })
+        }
+      >
         Candidates
-      </a>
+      </NavLink>
       <div className={styles.group}>
         <a href="#" className={styles.link}>
           Company
