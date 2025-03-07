@@ -1,6 +1,7 @@
 const Router = require("express").Router;
 const employmentsControllers = require("../controllers/employments-controllers");
 const userController = require("../controllers/user-controller");
+const candidatesController = require("../controllers/candidates-controllers");
 const { body } = require("express-validator");
 
 const router = new Router();
@@ -17,5 +18,6 @@ router.get("/activate/:link", userController.activate);
 router.post("/logout", userController.logout);
 router.post("/login", userController.login);
 router.get("/refresh", userController.refresh);
+router.get("/candidates", candidatesController.getAllCandidates);
 
 module.exports = router;
